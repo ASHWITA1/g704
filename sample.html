@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diwali Garbha Registration</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    /* optional small improvements — move to CSS file if needed */
+    body {
+      background: #faf7ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .container {
+      max-width: 420px;
+      margin: auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin: 6px 0 14px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+    button {
+      background: purple;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #6d0099;
+    }
+    #output {
+      margin-top: 15px;
+      padding: 12px;
+      background: #f0e5ff;
+      border-left: 4px solid purple;
+      border-radius: 6px;
+      display: none;
+    }
+  </style>
+
+</head>
+<body>
+
+  <div class="container">
+    <h1>Diwali Garbha Event Registration</h1>
+
+    <form id="garbhaForm">
+      <label for="name">Name:</label>
+      <input type="text" id="name" required placeholder="Enter your name" />
+
+      <label for="phone">Phone Number:</label>
+      <input type="tel" id="phone" required pattern="[0-9]{10}" placeholder="10-digit phone number" />
+
+      <label for="age">Age:</label>
+      <input type="number" id="age" required min="5" max="80" placeholder="Enter your age" />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required placeholder="Enter your email" />
+
+      <button type="submit">Register</button>
+    </form>
+
+    <div id="output"></div>
+  </div>
+
+  <script>
+    document.getElementById("garbhaForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const age = document.getElementById("age").value;
+      const email = document.getElementById("email").value;
+
+      const output = document.getElementById("output");
+      output.style.display = "block";
+      output.innerHTML = `
+        <strong>Registration Successful 🎉</strong><br><br>
+        Name: ${name}<br>
+        Phone: ${phone}<br>
+        Age: ${age}<br>
+        Email: ${email}
+      `;
+    });
+  </script>
+
+</body>
+</html>
